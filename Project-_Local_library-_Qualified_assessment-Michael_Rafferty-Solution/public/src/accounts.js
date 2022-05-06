@@ -60,7 +60,9 @@ function getTotalNumberOfBorrows(account, books) {
   if(!account) return null;
   if(!books) return null;
 
-  //initialize the accumulator countOfBorrows
+  //Call a helper function which will return a new array of book objects
+  //which will include a property with the specific number of borrows
+  //by the specified account
   let accountBorrows = getBooksAccessedByAccount(account, books);
   let countOfBorrows = accountBorrows.reduce((total, book) => 
     {
@@ -113,6 +115,7 @@ function getBooksPossessedByAccount(account, books, authors)
 
 /******************************************************************************
   Helper Function: getBooksAccessedByAccount
+  The helper function is called by the getTotalNumberOfBorrows functioon
   Inputs:
   account: A single account object
   books: An array of book objects
